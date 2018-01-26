@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { AsyncStorage } from 'react-native';
 import reducers from './reducers';
+import { getFeed } from './actions';
 
 const store = createStore(
   reducers,
@@ -13,8 +14,8 @@ const store = createStore(
   ),
 );
 
-persistStore(store, { storage: AsyncStorage, whitelist: [] }, () => {
-  // anything to run after store has been loaded from asyncstorage
+persistStore(store, { storage: AsyncStorage, whitelist: ['rssFeed'] }, () => {
+  store.dispatch(getFeed());
 });
 
 export default store;
