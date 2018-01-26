@@ -8,6 +8,7 @@
           "jsx": true
       }
   },
+  "plugins": ["jest"],
   "rules": {
       "react/jsx-filename-extension": false,
       "react/prefer-stateless-function": 0,
